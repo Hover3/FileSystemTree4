@@ -1,4 +1,4 @@
-package interfaces
+package folderTree
 
 import "FileSystemTree4.mod/FileSystemTree4/domain/folderTree"
 
