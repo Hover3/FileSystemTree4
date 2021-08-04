@@ -1,4 +1,4 @@
-package infrastructure
+package fileSystemScanner
 
 import (
 	"FileSystemTree4.mod/FileSystemTree4/domain/folderTree"

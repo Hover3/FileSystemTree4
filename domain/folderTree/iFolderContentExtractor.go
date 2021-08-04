@@ -1,7 +1,5 @@
 package folderTree
 
-import "FileSystemTree4.mod/FileSystemTree4/domain/folderTree"
-
 type FolderContentExtractor interface {
-	ExtractFolderContent (f *folderTree.FolderInfo)  error
+	ExtractFolderContent (f *FolderInfo)  error
 }

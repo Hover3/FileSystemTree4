@@ -1,6 +1,6 @@
 package folderTree
 
-import "FileSystemTree4.mod/FileSystemTree4/domain/interfaces"
+
 
 type FolderInfo struct {
 	Parent     *FolderInfo
@@ -30,7 +30,8 @@ func NewRootItem(absolutePath string) *FolderInfo {
 }
 
 func (f *FolderInfo) AddSubfolderItem(folderName string) *FolderInfo {
-	return &FolderInfo{
+
+	tmp := &FolderInfo{
 		Parent:     f,
 		SubFolders: make([]*FolderInfo, 0),
 		Files:      make([]*FileInfo, 0),
@@ -38,18 +39,20 @@ func (f *FolderInfo) AddSubfolderItem(folderName string) *FolderInfo {
 		CantAccess: false,
 		FolderName: folderName,
 	}
+	f.SubFolders=append(f.SubFolders, tmp)
+	return tmp
 }
 
 func (f *FolderInfo) GetAbsolutePath() string {
 	if f.Parent == nil {
 		return f.FolderName
 	} else {
-		return f.Parent.FolderName + "\\" + f.FolderName
+		return f.Parent.GetAbsolutePath() + "\\" + f.FolderName
 	}
 }
 
-func (f *FolderInfo) ScanRecurrent(fileSystemScanner *interfaces.FolderContentExtractor) {
-	f.Scan(fileSystemScanner)
+func (f *FolderInfo) ScanRecurrent(fileSystemScanner FolderContentExtractor) {
+	f.ScanFolderContent(fileSystemScanner)
 	if f.CantAccess != true {
 		for i := range f.SubFolders {
 			f.SubFolders[i].ScanRecurrent(fileSystemScanner)
@@ -57,9 +60,9 @@ func (f *FolderInfo) ScanRecurrent(fileSystemScanner *interfaces.FolderContentEx
 	}
 }
 
-func (f *FolderInfo) Scan(fileSystemScanner *interfaces.FolderContentExtractor) {
+func (f *FolderInfo) ScanFolderContent(fileSystemScanner FolderContentExtractor) {
 	var err error
-	err = (*fileSystemScanner).ExtractFolderContent(f)
+	err = fileSystemScanner.ExtractFolderContent(f)
 	if err != nil {
 		f.CantAccess = true
 	}
