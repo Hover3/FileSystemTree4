@@ -9,15 +9,12 @@ type FileSystemScanner struct {
 
 }
 
-func ExtractFolderContent (f *folderTree.FolderInfo) (
-	treeFolderInfo []*folderTree.FolderInfo,
-		fileInfo []*folderTree.FileInfo,
-		err error){
+func (obj *FileSystemScanner) ExtractFolderContent (f *folderTree.FolderInfo)  error{
 
 	FileSystemObjects, err := os.ReadDir(f.GetAbsolutePath())
 	if err != nil {
 		f.CantAccess = true
-		return
+		return err
 	}
 	for i := range FileSystemObjects {
 		fso:=FileSystemObjects[i]
@@ -38,5 +35,5 @@ func ExtractFolderContent (f *folderTree.FolderInfo) (
 	}
 	f.IsScanned = true
 	err=nil
-	return
+	return err
 }
