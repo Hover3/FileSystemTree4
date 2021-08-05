@@ -1,11 +1,11 @@
 package main
 
 import (
-	"FileSystemTree4.mod/FileSystemTree4/app/treePrinter"
-	"FileSystemTree4.mod/FileSystemTree4/domain/folderTree"
-	"FileSystemTree4.mod/FileSystemTree4/infrastructure/ScreenPrinters"
-	"FileSystemTree4.mod/FileSystemTree4/infrastructure/config"
-	"FileSystemTree4.mod/FileSystemTree4/infrastructure/fileSystemScanner"
+	"FileSystemTree4/app/treePrinter"
+	"FileSystemTree4/domain/folderTree"
+	"FileSystemTree4/infrastructure/ScreenPrinters"
+	"FileSystemTree4/infrastructure/config"
+	"FileSystemTree4/infrastructure/fileSystemScanner"
 	"github.com/joho/godotenv"
 	"log"
 	"os"

@@ -1,7 +1,7 @@
 package treePrinter
 
 import (
-	"FileSystemTree4.mod/FileSystemTree4/domain/folderTree"
+	"FileSystemTree4/domain/folderTree"
 	"strings"
 )
 

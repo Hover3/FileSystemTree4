@@ -1,9 +1,5 @@
-package treePrinter
-
-import (
-	"FileSystemTree4/domain/folderTree"
-)
+package folderTree
 
 type ITreeFilter interface {
-	IsFileMatchFilter (f *folderTree.FileInfo) bool
+	IsFileMatchFilter (f *FileInfo) bool
 }

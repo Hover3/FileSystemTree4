@@ -68,3 +68,12 @@ func (f *FolderInfo) ScanFolderContent(fileSystemScanner FolderContentExtractor)
 	}
 
 }
+func (f *FolderInfo) CountFilesMatchFilter(filter ITreeFilter) int {
+	count:=0
+	for i:=range f.Files {
+		if filter.IsFileMatchFilter(f.Files[i]) == true {
+			count++
+		}
+	}
+	return count
+}
