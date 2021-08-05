@@ -1,7 +1,7 @@
 package ScreenPrinters
 
 import (
-	"FileSystemTree4.mod/FileSystemTree4/infrastructure/config"
+	"FileSystemTree4/infrastructure/config"
 	"fmt"
 )
 

@@ -1,6 +1,6 @@
 package treePrinter
 
-import "FileSystemTree4.mod/FileSystemTree4/domain/folderTree"
+import "FileSystemTree4/domain/folderTree"
 
 type FilterAllowingAll struct {
 
